@@ -474,8 +474,24 @@ Au vu du tableau récapitulatif, nous avons pu obtenir des longueurs minimales i
 \newpage
 \subsection{Dimensionnement des engrenages}
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+Après avoir dimensionné nos arbres et nos cannelures, nous avons dimensionné les engrenages.
+
+Nous prenons un modèle simple de poutre rectangulaire afin de calculer la hauteur d'une dent de l'engrenage.
+
+\begin{center}
+\includegraphics[scale=0.6]{Flexion_dent_engrenage_modele_lewis.png}
+\captionof{figure}{Étude mécanique des dents d'un engrenage - modèle simplifié}
+\end{center}
+
+Nous devons avoir $\sigma_{x} = \frac{- M_f}{Ig_x} y_{max} \leq \frac{Re}{s}$
+Or $M_f = -2,25 mF $,  $ Ig_x =\frac{L (\frac{\pi m}{2})^3}{12}$ et $L = k m$
+
+Donc $\sigma_{x} = \frac{24}{k m (\pi m)^2} 2,25m \leq \frac{Re}{s} $
+
+Ainsi, \[ m \geq \sqrt{\frac{24 s}{ k \pi^2}\frac{2,25F}{Re}}\]
+
+En connaissant cette formule, nous avons pu calculer le module de chaque engrenage. De même, nous avons pu dimensionné les différents engrenages. Lors du dimensionnement de nos engrenages, nous avons vérifié qu'il n'y a pas de collisions entre nos différents composants. Vous trouverez ci-dessous le tableau récapitulatif.
+
 
 \begin{table}[h]
 \centering
@@ -496,7 +512,27 @@ Pompe 5 & 2 & 10 & 20 & 63 & 63 & 2 785,71 & 0,51 \\ \hline
 }
 \end{table}
 
+
+\newpage
 \subsection{Dimensionnement des roulements et des entretoises}
+
+Après avoir étudié les arbres, les cannelures et les engrenages, nous avons finalisé notre dimensionnement de notre relais d'accessoires par le dimensionnement des roulements et des entretoises.
+
+Nous prenons l'hypothèse que $P = F_r$, puisqu'aucune force axiale n'intervient.
+La force radiale exercée par l'arbre sur les roulements est déterminée par la droite de pression de l'engrenage que l'on prendra à 20 $^\circ{}$ par rapport à la force tangentielle transmise.
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{Droite_de_pression.png}
+\captionof{figure}{Droite de pression et forces transmises}
+\end{center}
+
+\[\| \vec{F_R} \| = \| \vec{T} \| tan(20^\circ{})\]
+
+Pour la durée de vie d'un roulement
+\[L_{10h} = (\frac{C}{P})^3 \frac{10^6}{60N}  \]
+En isolant C, nous trouvons :
+\[C = P^3\sqrt{L_{10h} \frac{60N}{10^6}}  \]
+
 
 \subsection{Modélisation sur CATIA}
 
