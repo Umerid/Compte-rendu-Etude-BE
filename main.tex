@@ -260,11 +260,16 @@ Notons que dans cette étude le \textbf{démarreur} est supposé tourner à \tex
 
 Dans cette partie, nous nous sommes intéressés à dimensionner notre relais d'accessoires lorsque ce dernier fonctionne à régime nominal. 
 
-Lors de notre étude pour déterminer la meilleure configuration, nous avons pu constater que la configuration A2 nécessite un arbre intermédiaire pour adapter les vitesses de rotations avec des rapports de réductions compris entre  0,5 et 2.
+Lors de notre étude pour déterminer la meilleure configuration, nous avons pu constater que la configuration A2 nécessite un arbre intermédiaire afin de respecter la contrainte des rapports de réduction compris entre  0,5 et 2.
 
-BESOIN DU SCHEMA DE JEROME AVEC UN SEUL INTERMEDIAIRE
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.8\textwidth]{Schema_cinematique_engrenages_V1.png}
+ \caption{Schéma cinématique de la configuration G1/D1/P4/P5}
+\end{figure}
 
-Vous trouverez ci-dessous le tableau récapitulatif des contraintes pour chaque composant de notre relais d'accessoires.
+
+Les différentes contraintes des composants qui ont une influence sur le dimensionnement du système sont présentées dans le tableau ci-dessous.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -273,20 +278,22 @@ Vous trouverez ci-dessous le tableau récapitulatif des contraintes pour chaque 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-COMPOSANT & Puissance (W) & Vitesse de rotation (rpm) & Vitesse de rotation (rads-1) & Couple (Nm) \\ \hline
+\textbf{Composant} & \textbf{Puissance (W)} & \textbf{Vitesse de rotation (rpm)} & \textbf{Vitesse de rotation (rads-1)} & \textbf{Couple (Nm)} \\ \hline
 Démarreur & 8,20E+04 & 11000 & 1 151,92 & 71,19 \\ \hline
 Génératrice & 2,00E+04 & 18850 & 1 973,97 & 10,13 \\ \hline
 Pompe 4 & 1,89E+04 & 3685 & 385,89 & 49,00 \\ \hline
 Pompe 5 & 4,46E+03 & 2800 & 293,22 & 15,21 \\ \hline
 Intermédiaire & 0,00E+00 & 4500 & 471,24 & 0,00 \\ \hline
-TOTAL & 1,25E+05 &  &  &  \\ \hline
+\textbf{Total} & 1,25E+05 &  &  &  \\ \hline
 \end{tabular}%
 }
 \end{table}
-
 \newpage
-\subsection{Dimensionnement préliminaire des arbres}
-Afin de dimensionner correctement les arbres de notre système, il est nécessaire de calculer le couple subis par chacun de ces arbres et de déterminer leur diamètre minimal. Vous trouverez ci-dessous le tableau récapitulatif des efforts subis par chaque arbre.
+
+\subsection{Dimensionnement des arbres en torsion}
+Une étude de résistance des matériaux est nécessaire afin de dimensionner les arbres du relais d'accessoires.
+
+Ainsi le couple subi par chaque arbre porteur d'engrenage doit être calculé afin de déterminer son diamètre minimal. Vous trouverez ci-dessous le tableau récapitulatif des efforts subis par chaque arbre.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -306,7 +313,7 @@ Arbre Pompe 5 & 4,46E+03 & 2800 & 293,22 & 15,21 \\ \hline
 }
 \end{table}
 
-En connaissant les couples pour chaque arbre, nous avons pu calculer le diamètre minimal pour chacun d'entre eux.
+L'étude de résistance en torsion donne ainsi le diamètre minimal de chaque arbre :
 
 \begin{table}[h]
 \centering
@@ -322,18 +329,18 @@ Arbre Pompe 5 & 11,03 & 11,07 \\ \hline
 \end{tabular}
 \end{table}
 
-Lors de cette étude, nous avons étudié le diamètre minimal lorsque les vitesses de rotations sont parfaitement respectées et aussi lorsque nous avons une erreur de 1\% pour chaque vitesse de rotation. Cette erreur de 1 \% correspond à la valeur maximale autorisée par notre cahier des charges fonctionnel.
+Cette étude donne le diamètre minimal des arbres lorsque les vitesses de rotations sont parfaitement respectées (colonne \textit{Diamètre mini}) et aussi lorsque nous avons une erreur de 1\% pour chaque vitesse de rotation (colonne \textit{Pire des cas}). Cette erreur de 1 \% correspond à la valeur maximale autorisée par notre cahier des charges fonctionnel.
 
-En connaissant les diamètres minimales, nous avons pu obtenir un ordre de grandeur pour les diamètres de nos arbres. Cependant, nous avons effectué le dimensionnement préliminaire des autres composants avant de choisir définitivement les diamètres.
+Nous avons alors effectué le dimensionnement préalable des autres composants avant de choisir définitivement les diamètres.
 
 \newpage
 \subsection{Dimensionnement des clavettes/cannelures}
 Afin de transmettre les efforts mécaniques aux engrenages, il est nécessaire d'utiliser des clavettes ou des cannelures. 
 
-Le choix entre ces différents montages dépend des efforts à transmettre et du diamètre de l'arbre.
+Le choix d'une de ces solutions technologiques dépend des efforts à transmettre et du diamètre de l'arbre.
 
 \subsubsection{Étude des clavettes}
-A titre de première piste explorée, nous avons étudié les clavettes. Les clavettes sont couramment utilisés grâce à leur facilité d'intégration sur un arbre.
+Les clavettes étant moins onéreuses et plus faciles à mettre en place, nous avons d'abord étudié la transmission de puissance par clavette.
 \begin{center}
 \includegraphics[width=0.5\textwidth]{Determination_clavette_sur_arbre.png}
 \captionof{figure}{Représentation de la surface de matage d'une clavette}
@@ -349,28 +356,30 @@ D'où  \[L>= \frac{b}{2}\frac{P_n}{F_n}\]
 A titre d'exemple, prenons le cas de l'arbre d'entrée. Nous rappelons qu'il est nécessaire que le diamètre minimal de l'arbre est de 22,81 mm dans le pire des cas. De même, le couple à transmettre est de 133,02 Nm. 
 Pour ajouter une clavette sur notre arbre, il est nécessaire de diminuer localement le diamètre de l'arbre. Par conséquent, nous proposons de prendre un diamètre de 28 mm pour éviter une fragilisation trop importante de l'arbre. 
 
-Par application numérique, nous trouvons que $F_n = 4,4 kN$ et qu'avec b = 8 mm, $L => 45 mm$
+Par application numérique, nous trouvons que $F_n = 4,4 kN$ et qu'avec b = 8 mm, $L = 45 mm$
 
-En réalisant d'autres calculs pour les autres arbres, nous nous sommes rendus comptes que nous avons plusieurs longueurs de clavettes supérieures à 30 mm. De telles longueurs nous obligent ne placer des épaulements à proximité des engrenages ce qui ne rend pas l'assemblage facilement faisable et compromet en partie la compacité du relais d'accessoires.
+Le dimensionnement de clavette sur les autres arbres nous a montré que plusieurs clavettes devaient être dimensionnées en longueur à plus de 30 mm. De telles longueurs nous obligent à placer des épaulements à proximité des engrenages ce qui rend l'assemblage plus difficile et compromet en partie la compacité du relais d'accessoires.
 
 Au vu des résultats plus non concluants avec les clavettes, nous avons décidé de nous tourner vers les cannelures.
 
 \subsubsection{Étude des cannelures}
-Après étudié les clavettes, nous avons étudié l'autre façon de transmettre les efforts mécaniques d'un arbre vers un engrenage : les cannelures.
+Une deuxième transmission de puissance consiste à utiliser des cannelures.
+
 
 Il existe deux types de cannelures : les cannelures à flancs parallèles et les cannelures à flancs en développante.
 Dans la suite, nous avons présenter nos calculs pour les deux types de cannelures.
 
-\paragraph{Étude des cannelures à flancs parallèles \\}
+\paragraph{Étude des cannelures à flancs parallèles}
 
-Lorsqu'il n'est pas possible d'utiliser des clavettes pour des raisons de longueur trop importantes, il est recommandé d'étudier les cannelures à flancs parallèles.
+Lorsqu'il n'est pas possible d'utiliser des clavettes pour des raisons de longueur trop importante, il est recommandé d'utiliser les cannelures à flancs parallèles.
 
-\begin{center}
-\includegraphics[width=0.8\textwidth]{cannelure_parallele.jpg}
-\captionof{figure}{Représentation d'une cannelure à flancs parallèles}
-\end{center}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{cannelure_parallele.jpg}
+    \caption{Représentation d'une cannelure à flancs parallèles}
+\end{figure}
 
-Afin de dimensionner ces cannelures, il est nécessaire d'effectuer l'hypothèse que la répartition de la pression est uniforme sur les flancs surface portante à 75 \% de la surface (A).
+Pour le dimensionnement, nous prendrons l'hypothèse d'une répartition de pression uniforme sur 75 \% des flancs (surface portante (notée A dans les équations)).
 
 Nous posons les notations suivantes :
 \begin{itemize}
