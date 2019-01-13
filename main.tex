@@ -245,6 +245,7 @@ TOTAL & 1,25E+05 &  &  &  \\ \hline
 }
 \end{table}
 
+\newpage
 \subsection{Dimensionnement préliminaire des arbres}
 Afin de dimensionner correctement les arbres de notre système, il est nécessaire de calculer le couple subis par chacun de ces arbres et de déterminer leur diamètre minimal. Vous trouverez ci-dessous le tableau récapitulatif des efforts subis par chaque arbre.
 
@@ -318,11 +319,10 @@ Au vu des résultats plus non concluants avec les clavettes, nous avons décidé
 \subsubsection{Étude des cannelures}
 Après étudié les clavettes, nous avons étudié l'autre façon de transmettre les efforts mécaniques d'un arbre vers un engrenage : les cannelures.
 
-
 Il existe deux types de cannelures : les cannelures à flancs parallèles et les cannelures à flancs en développante.
 Dans la suite, nous avons présenter nos calculs pour les deux types de cannelures.
 
-\paragraph{Étude des cannelures à flancs parallèles}
+\paragraph{Étude des cannelures à flancs parallèles \\}
 
 Lorsqu'il n'est pas possible d'utiliser des clavettes pour des raisons de longueur trop importantes, il est recommandé d'étudier les cannelures à flancs parallèles.
 
@@ -346,24 +346,118 @@ Nous posons les notations suivantes :
 Nous pouvons alors poser les équations suivantes :
 
 \begin{itemize}
-    \item Surface de contact : A = (3/4).n.h
-    \item Couple transmissible : C = (p.A.L.Dm) / 2
-    \item Condition de non matage : p= 2.C / A.L.Dm =<  Padm
-\end{itemize}
+    \item Surface portante équivalente par unité de longueur : $A = \frac{3}{4} n h$
+    \item Couple transmissible : $C = \frac{p A L Dm}{2}$
+    \item Condition de non matage : $p=  \frac{2 C}{A L Dm}=<  Padm$
+\end{itemize} 
 
-En nous appuyant sur ces formules, nous pouvons détemriner que la longueur
+En nous appuyant sur ces formules, nous pouvons déterminer que la longueur minimale vaut :
+\[L >= \frac{8 C}{3 n h Dm Padm}\]
+
+En connaissant les différents paramètres, nous avons utilisé le tableau ci-dessous pour trouver les dimensions des cannelures pour chaque arbre.
 
 \begin{center}
 \includegraphics[width=0.8\textwidth]{tab_cannelures.PNG}
 \captionof{figure}{Représentation d'une cannelure à flancs parallèles}
 \end{center}
     
+    
+Vous trouverez ci-dessous le tableau récapitulatif des différentes cannelures à flancs parallèles pour chacun de nos arbres.
 
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+Cannelures droites & n (nombre cannelures) & h (hauteur) (mm) & D  (mm) & d  (mm) & Dm ((D+d)/2) & Padm (MPa) & L mini (mm) \\ \hline
+Arbre Entrée & 6 & 2,5 & 28 & 23 & 25,5 & 5,00E+01 & 18,55 \\ \hline
+Arbre Démarreur & 6 & 2 & 25 & 21 & 23 & 5,00E+01 & 17,11 \\ \hline
+Arbre Génératrice & 6 & 2 & 22 & 18 & 20 & 5,00E+01 & 2,25 \\ \hline
+Arbre Intermédiaire & 6 & 2 & 22 & 18 & 20 & 5,00E+01 & 11,02 \\ \hline
+Arbre Pompe 4 & 6 & 2 & 22 & 18 & 20 & 5,00E+01 & 10,89 \\ \hline
+Arbre Pompe 5 & 6 & 1,5 & 16 & 13 & 14,5 & 5,00E+01 & 6,22 \\ \hline
+\end{tabular}%
+}
+\end{table}
 
+Les résultats sont plutôt concluants pour les cannelures à flancs parallèles. Cependant, Les cannelures à flancs parallèles ne sont pas parfaitement adaptées pour des vitesses de rotation très élevées du fait que l'alignement n'est pas parfaite. 
 
+Du fait que nous avons pas connaissance de la vitesse de rotation maximale pour les cannelures à flancs parallèles, nous avons décidé de changer par précaution pour l'autre type de cannelures : les cannelures à flancs en développante.
+
+\paragraph{Étude des cannelures à flancs en développante \\}
+
+Après étudié les cannelures à flancs parallèles, nous avons décidé d'étudier les cannelures à flancs en développante. Ces dernières ont l'avantage d'être adapté pour les vitesses de rotations importantes.
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{cannelure_developpante.jpg}
+\captionof{figure}{Représentation d'une cannelure à flancs en développante}
+\end{center}
+
+Pour dimensionner ces cannelures, nous avons utilisé les formules suivantes ;
+\begin{itemize}
+    \item A : surface portante équivalente par unité de longueur : $A = (\frac{d2-d1}{2}.Ndents$ où d1 est le diamètre intérieur et d2 est le diamètre extérieur de la cannelure.
+    \item Couple transmissible : $C = p A L \frac{d1+d2}{4} = \frac{p Ndents L}{8} (d2² - d1²)$.
+\end{itemize}
+Nous retrouvons rapidement que la longueur minimale de la cannelure à flancs en développante est égal à 
+\[ L >= \frac{8 C}{Ndents.(d2² - d1²). Padm}\]
+
+Afin de choisir au mieux les dimensions des différentes cannelures, nous nous sommes appuyés sur le tableau de calcul du livre mécanique "Guide du dessinateur industriel" de M.Chevalier publié en 1969.
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{guide_dessin_indus_cannelure_dev.jpg}
+\captionof{figure}{Tableau de dimensionnement des cannelures à flancs en développante du "Guide du dessinateur industriel" de M.Chevalier publié en 1969}
+\end{center}
+
+Vous trouverez ci-dessous le tableau récapitulatif des différentes cannelures à flancs en développante pour chacun de nos arbres.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+Flancs en développante & A  (mm) & m (module) & B (diamètre int) & N (nb dents) & D’ (diamètre primitif) & A’ (Diamètre ext) & L mini (mm) \\ \hline
+Arbre Entrée & 35 & 1,667 & 30,9992 & 19 & 31,7 & 34,6666 & 4,65 \\ \hline
+Arbre Démarreur & 35 & 1,667 & 30,9992 & 19 & 31,7 & 34,6666 & 3,10 \\ \hline
+Arbre Génératrice & 20 & 1,25 & 17 & 18 & 18 & 19,75 & 0,89 \\ \hline
+Arbre Intermédiaire & 20 & 1,25 & 17 & 18 & 18 & 19,75 & 4,36 \\ \hline
+Arbre Pompe 4 & 20 & 1,25 & 17 & 18 & 18 & 19,75 & 4,31 \\ \hline
+Arbre Pompe 5 & 20 & 1,25 & 17 & 18 & 18 & 19,75 & 1,34 \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+Au vu du tableau récapitulatif, nous avons pu obtenir des longueurs minimales inférieures à 10 mm. Cela nous permet nous permet d'ajuster la longueur des cannelures en fonction de la largeur des différents engrenages. 
+
+\newpage
 \subsection{Dimensionnement des engrenages}
 
-\subsection{Dimensionnement des roulements et des entroises}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+Engrenages & module & k & Largeur (mm) & Rayon engrenage (mm) & nb dents & Vitesse de rotation & Erreur (\%) \\ \hline
+Entrée 1 & 3 & 10 & 30 & 75 & 50 & 9 000,00 &  \\ \hline
+Entrée 2 & 2 & 10 & 20 & 36 & 36 & 9 000,00 &  \\ \hline
+Démarreur 1 & 3 & 10 & 30 & 61,5 & 41 & 10 975,61 & 0,22 \\ \hline
+Démarreur 2 & 2 & 10 & 20 & 48 & 48 & 10 975,61 & 0,22 \\ \hline
+Génératrice & 2 & 10 & 20 & 28 & 28 & 18 815,33 & 0,18 \\ \hline
+Intermédiaire 1 & 2 & 10 & 20 & 72 & 72 & 4 500,00 &  \\ \hline
+Intermédiaire 2 & 2 & 10 & 20 & 39 & 39 & 4 500,00 &  \\ \hline
+Pompe 4 & 2 & 10 & 20 & 48 & 48 & 3 656,25 & 0,78 \\ \hline
+Pompe 5 & 2 & 10 & 20 & 63 & 63 & 2 785,71 & 0,51 \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Dimensionnement des roulements et des entretoises}
 
 \subsection{Modélisation sur CATIA}
 
