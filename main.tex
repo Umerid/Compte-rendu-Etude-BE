@@ -248,6 +248,26 @@ TOTAL & 1,25E+05 &  &  &  \\ \hline
 \subsection{Dimensionnement préliminaire des arbres}
 Afin de dimensionner correctement les arbres de notre système, il est nécessaire de calculer le couple subis par chacun de ces arbres et de déterminer leur diamètre minimal. Vous trouverez ci-dessous le tableau récapitulatif des efforts subis par chaque arbre.
 
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+ARBRE & Puissance (W) & Vitesse de rotation (rpm) & Vitesse de rotation (rads-1) & Couple (Nm) \\ \hline
+Arbre Entrée & 1,25E+05 & 9000 & 942,48 & 133,02 \\ \hline
+Arbre Démarreur & 1,02E+05 & 11000 & 1 151,92 & 88,55 \\ \hline
+Arbre Génératrice & 2,00E+04 & 18850 & 1 973,97 & 10,13 \\ \hline
+Arbre Intermédiaire & 2,34E+04 & 4500 & 471,24 & 49,59 \\ \hline
+Arbre Pompe 4 & 1,89E+04 & 3685 & 385,89 & 49,00 \\ \hline
+Arbre Pompe 5 & 4,46E+03 & 2800 & 293,22 & 15,21 \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+En connaissant les couples pour chaque arbre, nous avons pu calculer le diamètre minimal pour chacun d'entre eux.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -267,10 +287,78 @@ Lors de cette étude, nous avons étudié le diamètre minimal lorsque les vites
 En connaissant les diamètres minimales, nous avons pu obtenir un ordre de grandeur pour les diamètres de nos arbres. Cependant, nous avons effectué le dimensionnement préliminaire des autres composants avant de choisir définitivement les diamètres.
 
 \newpage
-\subsection{Dimensionnement des cannelures}
+\subsection{Dimensionnement des clavettes/cannelures}
 Afin de transmettre les efforts mécaniques aux engrenages, il est nécessaire d'utiliser des clavettes ou des cannelures. 
 
 Le choix entre ces différents montages dépend des efforts à transmettre et du diamètre de l'arbre.
+
+\subsubsection{Étude des clavettes}
+A titre de première piste explorée, nous avons étudié les clavettes. Les clavettes sont couramment utilisés grâce à leur facilité d'intégration sur un arbre.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{Determination_clavette_sur_arbre.png}
+\captionof{figure}{Représentation de la surface de matage d'une clavette}
+\end{center}
+
+La clavette est matée si 
+\[P_n = \frac{F_n}{S_n}  \geq 50 MPa \]
+Nous avons une pression de matage de 50 MPa car c'est la valeur que nous avions utilisé pour l'étude du concasseur durant nos séances de Bureau d'Etude Mécanique.
+Nous choisissons donc $S_n$ surface de contact où les forces s'appliquent de manière à vérifier ce critère.
+\[S_n = \frac{b}{2}L  \]
+D'où  \[L>= \frac{b}{2}\frac{P_n}{F_n}\]
+
+A titre d'exemple, prenons le cas de l'arbre d'entrée. Nous rappelons qu'il est nécessaire que le diamètre minimal de l'arbre est de 22,81 mm dans le pire des cas. De même, le couple à transmettre est de 133,02 Nm. 
+Pour ajouter une clavette sur notre arbre, il est nécessaire de diminuer localement le diamètre de l'arbre. Par conséquent, nous proposons de prendre un diamètre de 28 mm pour éviter une fragilisation trop importante de l'arbre. 
+
+Par application numérique, nous trouvons que $F_n = 4,4 kN$ et qu'avec b = 8 mm, $L => 45 mm$
+
+En réalisant d'autres calculs pour les autres arbres, nous nous sommes rendus comptes que nous avons plusieurs longueurs de clavettes supérieures à 30 mm. De telles longueurs nous obligent ne placer des épaulements à proximité des engrenages ce qui ne rend pas l'assemblage facilement faisable et compromet en partie la compacité du relais d'accessoires.
+
+Au vu des résultats plus non concluants avec les clavettes, nous avons décidé de nous tourner vers les cannelures.
+
+\subsubsection{Étude des cannelures}
+Après étudié les clavettes, nous avons étudié l'autre façon de transmettre les efforts mécaniques d'un arbre vers un engrenage : les cannelures.
+
+
+Il existe deux types de cannelures : les cannelures à flancs parallèles et les cannelures à flancs en développante.
+Dans la suite, nous avons présenter nos calculs pour les deux types de cannelures.
+
+\paragraph{Étude des cannelures à flancs parallèles}
+
+Lorsqu'il n'est pas possible d'utiliser des clavettes pour des raisons de longueur trop importantes, il est recommandé d'étudier les cannelures à flancs parallèles.
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{cannelure_parallele.jpg}
+\captionof{figure}{Représentation d'une cannelure à flancs parallèles}
+\end{center}
+
+Afin de dimensionner ces cannelures, il est nécessaire d'effectuer l'hypothèse que la répartition de la pression est uniforme sur les flancs surface portante à 75 \% de la surface (A).
+
+Nous posons les notations suivantes :
+\begin{itemize}
+\item n : nombre de cannelures
+\item h : hauteur d'une cannelure
+\item C : couple à transmettre
+\item p : pression de contact
+\item L : longueur des cannelures
+\item Dm : diamètre moyen : (D+d)/2
+\end{itemize}
+
+Nous pouvons alors poser les équations suivantes :
+
+\begin{itemize}
+    \item Surface de contact : A = (3/4).n.h
+    \item Couple transmissible : C = (p.A.L.Dm) / 2
+    \item Condition de non matage : p= 2.C / A.L.Dm =<  Padm
+\end{itemize}
+
+En nous appuyant sur ces formules, nous pouvons détemriner que la longueur
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{tab_cannelures.PNG}
+\captionof{figure}{Représentation d'une cannelure à flancs parallèles}
+\end{center}
+    
+
 
 
 \subsection{Dimensionnement des engrenages}
