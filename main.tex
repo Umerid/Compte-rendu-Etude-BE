@@ -518,6 +518,8 @@ Pompe 5 & 2 & 10 & 20 & 63 & 63 & 2 785,71 & 0,51 \\ \hline
 
 Après avoir étudié les arbres, les cannelures et les engrenages, nous avons finalisé notre dimensionnement de notre relais d'accessoires par le dimensionnement des roulements et des entretoises.
 
+\subsubsection{Dimensionnement des roulements}
+
 Nous prenons l'hypothèse que $P = F_r$, puisqu'aucune force axiale n'intervient.
 La force radiale exercée par l'arbre sur les roulements est déterminée par la droite de pression de l'engrenage que l'on prendra à 20 $^\circ{}$ par rapport à la force tangentielle transmise.
 
@@ -526,14 +528,64 @@ La force radiale exercée par l'arbre sur les roulements est déterminée par la
 \captionof{figure}{Droite de pression et forces transmises}
 \end{center}
 
-\[\| \vec{F_R} \| = \| \vec{T} \| tan(20^\circ{})\]
+L'expression de la charge statique s'exprime avec la formule suivante :
+\[\ P = | \vec{F_R} \| = \| \vec{T} \| tan(20^\circ{})\]
 
-Pour la durée de vie d'un roulement
+Afin de déterminer la durée de nos roulements, nous avons utilisé la formule permettant de calculé $L_{10h}$
+
 \[L_{10h} = (\frac{C}{P})^3 \frac{10^6}{60N}  \]
 En isolant C, nous trouvons :
 \[C = P^3\sqrt{L_{10h} \frac{60N}{10^6}}  \]
 
+En prenant en compte l'ensemble des données que nous avons sur les différents composants de notre relais d'accessoires, nous pouvons calculer la charge dynamique de chaque arbre. Vous pourrez trouver ci-dessous, la charge dynamique des différents arbres.
 
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Roulements & Vitesse de rotation (RPM) & Couple & Rayon arbre (m) & P (N) & C (N) & Diamètre (mm) \\ \hline
+Arbre Entrée & 9 000,00 & 133,02 & 0,011 & 4 401,45 & 45 158,23 & 22 \\ \hline
+Arbre Démarreur & 10 975,61 & 88,55 & 0,01 & 3 222,88 & 35 327,65 & 20 \\ \hline
+Arbre Génératrice & 18 815,33 & 10,13 & 0,0085 & 433,85 & 5 691,60 & 17 \\ \hline
+Arbre Intermédiaire & 4 500,00 & 49,59 & 0,0085 & 2 123,56 & 17 292,69 & 17 \\ \hline
+Arbre Pompe 4 & 3 656,25 & 49,00 & 0,0085 & 2 098,32 & 15 944,52 & 17 \\ \hline
+Arbre Pompe 5 & 2 785,71 & 15,21 & 0,0085 & 651,32 & 4 520,31 & 17 \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+Le diamètre des arbres et des roulements ont été adaptés à ce qui existent auprès des fournisseurs. Le choix des roulements a été fait en supposant que malgré la présence de deux roulements pour chaque arbre, la charge dynamique sur chaque arbre n'est pas répartie uniformément sur les roulements. De même, nous avons décidé de minimiser le nombre de roulements différents. Cela permet d'avoir un effet d'échelle lors de l'achat et aussi de pouvoir faciliter la maintenance des relais d'accessoires.
+Après avoir recherché dans le livret de commandes de l'entreprise SKF, nous avons décidé de nous fournir en roulements à roulements. Vous trouverez ci-dessous, un tableau récapitulant la référence du roulement pour chaque arbre.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|}
+\hline
+Roulements & Diamètre (mm) & Roulement à rouleaux \\ \hline
+Arbre Entrée & 22 & NU 305 ECP \\ \hline
+Arbre Démarreur & 20 & NU 304 ECP \\ \hline
+Arbre Génératrice & 17 & NU 2203 ECP \\ \hline
+Arbre Intermédiaire & 17 & NU 2203 ECP \\ \hline
+Arbre Pompe 4 & 17 & NU 2203 ECP \\ \hline
+Arbre Pompe 5 & 17 & NU 2203 ECP \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+
+\newpage
+\subsection{Dimensionnement des entretoises}
+
+Finalement, après avoir dimensionné la majorité de nos composants, nous avons 
+
+\newpage
 \subsection{Modélisation sur CATIA}
 
 
