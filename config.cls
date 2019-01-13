@@ -40,7 +40,7 @@
 \lhead{\includegraphics[scale=0.02]{WEI-ENSEA-20151.png}} %Affichage de l'image au top de la page
 \rhead{\nouppercase{\leftmark}}
 \rfoot{\thepage}
-\cfoot{Jérôme Plé et Alexandre Ratieuville-Ogier}
+\cfoot{Aastha Papneja, Jérôme Plé et Alexandre Ratieuville-Ogier}
 \lfoot{\UE}
 }
 

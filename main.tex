@@ -53,7 +53,9 @@
 
 \enseignant{M. Hugues \textsc{Templier}}%Nom des élèves
 
-\eleves{Jérôme \textsc{Plé} \\
+\eleves{
+        Aastha \textsc{Papneja} \\
+        Jérôme \textsc{Plé} \\
 		Alexandre \textsc{Ratieuville-Ogier}}%Nom des élèves
 
 %----------- Initialisation -------------------
@@ -115,7 +117,7 @@ Pour notre étude, nous avons cinq configurations possibles avec des architectur
 La figure ci-dessous montre les deux architectures possibles. "P1" et "P2" représentent les pompes hydrauliques, "G" la génératrice et "D" le démarreur. 
 
 \begin{center}
-\includegraphics[scale=0.8]{architecture.png}
+\includegraphics[scale=0.4]{architecture_BE.png}
 \captionof{figure}{Les deux architectures possibles pour notre relais d'accessoires}
 \end{center}
 
@@ -144,8 +146,8 @@ Afin de choisir la meilleure configuration, nous avons réalisé deux études. L
 \subsection{Étude avec l'encombrement des différents composants}
 Dans le but d'avoir un premier classement des différentes configurations en fonction de l'encombrement, nous avons étudié l'encombrement provoqué par chaque composant en variant les architectures possibles. 
 
+BESOIN FICHIER JEROME SURFACIQUE
 
-Configuration A2 : Best
 \newpage
 \subsection{Étude avec les rapports de réduction}
 
@@ -212,17 +214,83 @@ Après avoir testé les différents combinaisons, nous avons retenu les configur
 \captionof{figure}{Les configurations retenues par notre équipe}
 \end{center}
 
-Le choix entre ces deux configurations va être fait en fonction de l'encombrement provoqué par le jeu d'engrenage pour chacune des configurations.
+Le choix entre ces deux configurations va être fait en fonction de l'encombrement provoqué par le jeu d'engrenage pour chacune des configurations. Il est important de préciser que nos calculs ont été effectués lors du régime nominal du système
 
 \newpage
-\subsection{Choix de la meilleure configuration}
-Schéma avec P5 en bas et P4 en haut
+\section{Étude dans le cas d'un fonctionnement nominal}
 
-\section{Dimensionnement de notre relais d'accessoires}
+Dans cette partie, nous nous sommes intéressés à dimensionner notre relais d'accessoires lorsque ce dernier fonctionne à régime nominal. 
 
-\section{Conception sur Catia}
-TestJerome
+Lors de notre étude pour déterminer la meilleure configuration, nous avons pu constater que la configuration A2 nécessite un arbre intermédiaire pour adapter les vitesses de rotations avec des rapports de réductions compris entre  0,5 et 2.
 
+BESOIN DU SCHEMA DE JEROME AVEC UN SEUL INTERMEDIAIRE
+
+Vous trouverez ci-dessous le tableau récapitulatif des contraintes pour chaque composant de notre relais d'accessoires.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+COMPOSANT & Puissance (W) & Vitesse de rotation (rpm) & Vitesse de rotation (rads-1) & Couple (Nm) \\ \hline
+Démarreur & 8,20E+04 & 11000 & 1 151,92 & 71,19 \\ \hline
+Génératrice & 2,00E+04 & 18850 & 1 973,97 & 10,13 \\ \hline
+Pompe 4 & 1,89E+04 & 3685 & 385,89 & 49,00 \\ \hline
+Pompe 5 & 4,46E+03 & 2800 & 293,22 & 15,21 \\ \hline
+Intermédiaire & 0,00E+00 & 4500 & 471,24 & 0,00 \\ \hline
+TOTAL & 1,25E+05 &  &  &  \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Dimensionnement préliminaire des arbres}
+Afin de dimensionner correctement les arbres de notre système, il est nécessaire de calculer le couple subis par chacun de ces arbres et de déterminer leur diamètre minimal. Vous trouverez ci-dessous le tableau récapitulatif des efforts subis par chaque arbre.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+DIAMÈTRE & Diamètre mini (mm) & Diamètre min (Pire des cas) \\ \hline
+Arbre Entrée & 22,73 & 22,81 \\ \hline
+Arbre Démarreur & 19,85 & 19,91 \\ \hline
+Arbre Génératrice & 9,64 & 9,67 \\ \hline
+Arbre Intermédiaire & 16,36 & 16,41 \\ \hline
+Arbre Pompe 4 & 16,29 & 16,35 \\ \hline
+Arbre Pompe 5 & 11,03 & 11,07 \\ \hline
+\end{tabular}
+\end{table}
+
+Lors de cette étude, nous avons étudié le diamètre minimal lorsque les vitesses de rotations sont parfaitement respectées et aussi lorsque nous avons une erreur de 1\% pour chaque vitesse de rotation. Cette erreur de 1 \% correspond à la valeur maximale autorisée par notre cahier des charges fonctionnel.
+
+En connaissant les diamètres minimales, nous avons pu obtenir un ordre de grandeur pour les diamètres de nos arbres. Cependant, nous avons effectué le dimensionnement préliminaire des autres composants avant de choisir définitivement les diamètres.
+
+\newpage
+\subsection{Dimensionnement des cannelures}
+Afin de transmettre les efforts mécaniques aux engrenages, il est nécessaire d'utiliser des clavettes ou des cannelures. 
+
+Le choix entre ces différents montages dépend des efforts à transmettre et du diamètre de l'arbre.
+
+
+\subsection{Dimensionnement des engrenages}
+
+\subsection{Dimensionnement des roulements et des entroises}
+
+\subsection{Modélisation sur CATIA}
+
+
+\section{Étude dans le cas du démarrage de notre relais d'accessoires}
+
+\subsection{Dimensionnement des arbres}
+
+\subsection{Dimensionnement des cannelures}
+
+\subsection{Dimensionnement des engrenages}
+
+\subsection{Dimensionnement des roulements et des entroises}
+
+\subsection{Modélisation sur CATIA}
 
 \end{spacing}
 \end{document}
