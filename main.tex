@@ -94,7 +94,7 @@ De manière générale, ce relais d'accessoires se place dans la partie basse du
 \captionof{figure}{Vue de coupe du CFM56-7 DAC}
 \end{center}
 
-Comme nous pouvons le constater sur la vue en coupe du CFM56-7 DAC ci-dessus, le relais d'accessoires (qui est colorié en marron et possédant les numéros 16 et 17) est relié à l'arbre central du réacteur. Lors du démarrage du réacteur, le pilote de l'avion va demander le démarrage des différents composants sur le relais d'accessoires. Après avoir démarré ces derniers, l'arbre (numéro 16) va commencer à se mettre en rotation. Sa rotation va initialiser la rotation de l'arbre central ce qui va commencer à faire rentrer de l'air dans la tuyère. Une fois que le volume d'air dans la tuyère est suffisant, le carburant est injecté progressivement dans la zone à combustion pour permettre au réacteur jusqu'à atteindre un régime moteur suffisant pour l'auto-entretenir. Une fois que l'arbre central tourne suffisamment vite pour lui permettre de conserver son régime moteur en l'absence du relais d'accessoires, l'arbre venant du relais accessoires est débrayé.
+Comme nous pouvons le constater sur la vue en coupe du CFM56-7 DAC ci-dessus, le relais d'accessoires (qui est colorié en marron et possédant les numéros 16 et 17) est relié à l'arbre central du réacteur. Lors du démarrage du réacteur le démarreur fournit la rotation à l'arbre de la turbine, ce qui a pour effet de faire rentrer de l'air dans la tuyère. Une fois que le volume d'air dans la tuyère est suffisant, le carburant est injecté progressivement dans la zone de combustion. La rotation de la turbine se fait donc de plus en plus grâce à la combustion du carburant. Une fois que l'arbre central tourne suffisamment vite pour lui permettre de conserver son régime nominal en l'absence du démarreur, l'arbre du démarreur est débrayé.
 
 
 \newpage
@@ -104,16 +104,17 @@ En regardant plus en profondeur un relais d'accessoires, nous remarquons la pré
 \captionof{figure}{Exemple d'un relais d'accessoires de Rolls-Royce}
 \end{center}
 
-Parmi les différents composants du relais d'accessoires, nous retrouvons une génératrice, un démarreur, des pompes hydrauliques et d'autres éléments indispensables pour le bon fonctionnement du réacteur d'avion. 
+Parmi les différents composants du relais d'accessoires, nous retrouvons une génératrice, un démarreur, des pompes hydrauliques et d'autres éléments indispensables pour le bon fonctionnement d'un avion. 
+
 Il est important de signaler que les engrenages sont enfermés dans un carter et que ces engrenages sont imprégnés d'huile pour limiter les problèmes de contacts mécaniques. Une des pompe hydraulique est placé sur le relais d'accessoires pour permettre de maintenir un niveau d'huile suffisant dans le carter.
 
-Dans le cadre de notre étude, nous allons concevoir un relais d'accessoires simplifié. En effet, nous avons à réaliser ce relais en plaçant un démarreur, une génératrice et deux pompes hydrauliques.
+Dans le cadre de notre étude, nous allons concevoir un relais d'accessoires simplifié. En effet, nous devons réaliser ce relais en plaçant un démarreur, une génératrice et deux pompes hydrauliques.
 
 
 \newpage
 \section{Recherche de la meilleure configuration}
 
-Pour notre étude, nous avons cinq configurations possibles avec des architectures différentes. Nous avons deux architectures possibles autour du jeu d'engrenages. pour nos différents composants. La première configuration vise à placer notre quatre composants du même côté alors que la deuxième configuration vise à placer deux composants de chaque côté.
+Pour notre étude, Cinq configurations matérielles sont possibles, chacune permettant de disposer les composants selon 2 architectures différentes. La première architecture vise à placer nos quatre composants du même côté alors que la deuxième architecture vise à placer deux composants de chaque côté.
 La figure ci-dessous montre les deux architectures possibles. "P1" et "P2" représentent les pompes hydrauliques, "G" la génératrice et "D" le démarreur. 
 
 \begin{center}
@@ -121,7 +122,7 @@ La figure ci-dessous montre les deux architectures possibles. "P1" et "P2" repr�
 \captionof{figure}{Les deux architectures possibles pour notre relais d'accessoires}
 \end{center}
 
-Au total, nous avons dix combinaisons possibles avec les différents configurations et architectures possibles. Vous trouverez ci-dessous le tableau récapitulatif. Pour chaque choix de configuration, nous devrons utiliser des composants spécifiques.
+Au total, dix combinaisons sont possibles. Ci-dessous, un tableau récapitule les configurations possibles :
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -140,22 +141,56 @@ E1/E2 & 1 ou 2 & D5 & G5 & P2 & P3 \\ \hline
 }
 \end{table}
 
-Afin de choisir la meilleure configuration, nous avons réalisé deux études. La première est une étude de l'encombrement de l'ensemble des composants pour chaque configuration. La deuxième est  l'étude des rapports de réduction entre chaque composant pour chaque configuration.
+Afin de choisir la meilleure configuration, nous avons réalisé deux études. 
+
+\begin{itemize}
+ \item La première est une étude de l'encombrement de l'ensemble des composants selon la configuration.
+ \item La deuxième est l'étude de la disposition des composants pour optimiser les rapports de réduction d'engrenage.
+\end{itemize}
 
 \newpage
-\subsection{Étude avec l'encombrement des différents composants}
-Dans le but d'avoir un premier classement des différentes configurations en fonction de l'encombrement, nous avons étudié l'encombrement provoqué par chaque composant en variant les architectures possibles. 
+\subsection{Étude de l'encombrement des différents composants}
+Dans le but d'avoir un premier classement des différentes configurations matérielles, nous les avons ordonnées en fonction de l'encombrement qu'elles engendrent en considérant chaque accessoire du relais comme un cylindre de diamètre extérieur identique à celui de l'accessoire considéré. 
 
-BESOIN FICHIER JEROME SURFACIQUE
+\begin{table}[h!]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllll}
+\cline{1-5}
+\multicolumn{1}{|l|}{Configuration} & \multicolumn{1}{l|}{Section cumulée cylindres}         & \multicolumn{1}{l|}{max diamètre (hauteur relais)}        & \multicolumn{1}{l|}{Profondeur}           & \multicolumn{1}{l|}{Puissance totale kW} &                                          \\ \cline{1-5}
+\multicolumn{1}{|l|}{A1}            & \multicolumn{1}{l|}{69926}                                 & \multicolumn{1}{l|}{167}                                   & \multicolumn{1}{l|}{253}                  & \multicolumn{1}{l|}{123}                 &                                          \\ \cline{1-5}
+\multicolumn{1}{|l|}{B1}            & \multicolumn{1}{l|}{76520}                                 & \multicolumn{1}{l|}{182}                                   & \multicolumn{1}{l|}{295}                  & \multicolumn{1}{l|}{173}                 &                                          \\ \cline{1-5}
+\multicolumn{1}{|l|}{C1}            & \multicolumn{1}{l|}{115115}                                & \multicolumn{1}{l|}{244}                                   & \multicolumn{1}{l|}{378}                  & \multicolumn{1}{l|}{242}                 &                                          \\ \cline{1-5}
+\multicolumn{1}{|l|}{D1}            & \multicolumn{1}{l|}{143184}                                & \multicolumn{1}{l|}{263}                                   & \multicolumn{1}{l|}{420}                  & \multicolumn{1}{l|}{271}                 &                                          \\ \cline{1-5}
+\multicolumn{1}{|l|}{E1}            & \multicolumn{1}{l|}{168015}                                & \multicolumn{1}{l|}{287}                                   & \multicolumn{1}{l|}{450}                  & \multicolumn{1}{l|}{340}                 &                                          \\ \cline{1-5}
+                                    &                                                            &                                                            &                                           &                                          &                                          \\ \hline
+\multicolumn{1}{|l|}{Configuration} & \multicolumn{1}{l|}{Section cumulée, face 1} & \multicolumn{1}{l|}{Section cumulée, face 2} & \multicolumn{1}{l|}{Max(section cumulée)} & \multicolumn{1}{l|}{Profondeur}          & \multicolumn{1}{l|}{Puissance totale kW} \\ \hline
+\multicolumn{1}{|l|}{A2}            & \multicolumn{1}{l|}{39107}                                 & \multicolumn{1}{l|}{38673}                                 & \multicolumn{1}{l|}{39107}                & \multicolumn{1}{l|}{460}                 & \multicolumn{1}{l|}{123}                 \\ \hline
+\multicolumn{1}{|l|}{B2}            & \multicolumn{1}{l|}{43219}                                 & \multicolumn{1}{l|}{41155}                                 & \multicolumn{1}{l|}{43219}                & \multicolumn{1}{l|}{542}                 & \multicolumn{1}{l|}{173}                 \\ \hline
+\multicolumn{1}{|l|}{C2}            & \multicolumn{1}{l|}{64905}                                 & \multicolumn{1}{l|}{58064}                                 & \multicolumn{1}{l|}{64905}                & \multicolumn{1}{l|}{708}                 & \multicolumn{1}{l|}{242}                 \\ \hline
+\multicolumn{1}{|l|}{D2}            & \multicolumn{1}{l|}{75708}                                 & \multicolumn{1}{l|}{75330}                                 & \multicolumn{1}{l|}{75708}                & \multicolumn{1}{l|}{777}                 & \multicolumn{1}{l|}{271}                 \\ \hline
+\multicolumn{1}{|l|}{E2}            & \multicolumn{1}{l|}{86075}                                 & \multicolumn{1}{l|}{89794}                                 & \multicolumn{1}{l|}{89794}                & \multicolumn{1}{l|}{835}                 & \multicolumn{1}{l|}{340}                 \\ \hline
+\end{tabular}%
+}
+\caption{Classement ordonné par puissance consommée et encombrement des différentes configurations matérielles pour chaque architecture}
+\end{table}
+
+La configuration qui permet un encombrement minimal est ainsi la configuration A2, en disposant le démarreur du côté de l'arbre d'entrée E et la génératrice du côté opposé.
 
 \newpage
-\subsection{Étude avec les rapports de réduction}
+\subsection{Étude des rapports de réduction}
 
-Après avoir obtenu un premier classement pour les différentes configurations, nous avons étudié les rapports de réduction entre chaque composants pour chaque configuration possible. Au total, nous avons pu tester 480 combinaisons possibles ((1 (architecture 1) + 3 (architecture 2))$\times$ 4!$\times$ 5 (configurations) = 4$\times$24$\times$5 = 480). L'architecture 2 permet trois dispositions différentes car nous pouvons avoir le cas où les arbres de deux composants peuvent se connecter sur un arbre intermédiaire.
+Un premier classement ayant été réalisé concernant l'encombrement, nous nous intéressons maintenant à l'étude des rapports de réduction. 
 
-Pour effectuer un classement pertinent, nous avons décidé de classer les configurations en fonction de l'écart-type du cumul des rapports de réduction, du nombre d'engrenages ayant un rapport à l'extérieur de l'intervalle $[0,5,2]$ et du respect du sens de rotation du démarreur à air. En effet, en fonction de la configuration, le démarreur tourne dans le sens horaire ou dans le sens trigonométrique.
+En effet, un rapport de réduction compris entre 0,5 et 2 est demandé par l'énoncé pour chaque transmission par engrenage.\\
+Cela aboutira à un deuxième classement, de la configuration la plus optimisée (le moins de changements de diamètres d'engrenages) à la moins optimisée.
 
-Vous pourrez trouver ci-dessous un exemple d'un tableau analysant les différentes combinaisons possibles pour la configuration A1.
+Après automatisation informatique de cette classification, nous avons pu au total tester 480 combinaisons possibles ((1 (architecture 1) + 3 (architecture 2))$\times$ 4!$\times$ 5 (configurations) = 4$\times$24$\times$5 = 480). L'architecture 2 permet trois dispositions différentes car nous pouvons avoir le cas où les arbres de deux composants peuvent se connecter sur un arbre intermédiaire.
+
+Pour effectuer un classement pertinent, nous avons décidé de classer les configurations en fonction la colonne \textit{écart-type}, du nombre d'engrenages ayant un rapport de réduction à l'extérieur de l'intervalle $[0,5,2]$ et du respect du sens de rotation du démarreur. En effet, en fonction de la configuration, le démarreur tourne dans le sens horaire ou dans le sens trigonométrique. 
+
+La colonne \textit{écart-type} est un indicateur. Plus cet indicateur est important, plus cela signifie que la configuration calculée nécessite des changements de diamètre importants. 
+
+Le tableau ci-dessous est un extrait de cette étude. Il analyse les différentes dispositions possibles pour la configuration A1.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -192,29 +227,33 @@ P5/G1/D1/P4 & 0,149 & 2,094 & 1,222 & 0,335 & 0,895250311 \\ \hline
 \end{tabular}%
 }
 \end{table}
+\newpage
 
-Après avoir testé l'ensemble des combinaisons possibles pour une configuration, nous affichons les valeurs dans un graphique. Cela nous d'avoir plus rapidement la configuration la plus intéressante.
+Le graphique ci-dessous est représentatif de l'optimisation dans la disposition des accessoires. La configuration la plus intéressante minimisant les changements de diamètre des engrenages est donc G1/D1/P4/P5 pour l'architecture A1 (toutes les pièces du même côté).
 
 \begin{center}
 \includegraphics[scale=0.8]{graphique_ecart_type.PNG}
 \captionof{figure}{Courbe récapitulant l'écart type pour la configuration A1}
 \end{center}
 
-Pour chaque configuration, nous avons testé l'ensemble des combinaisons possibles. Après avoir fait cela, nous avons affiché l'écart-type pour les quatre architectures possibles pour la configuration. La figure ci-dessous montre l'écart-type des différentes combinaisons possibles avec la configuration A.
+Pour chaque configuration, nous avons testé l'ensemble des combinaisons possibles et affiché l'écart-type pour les quatre architectures possibles pour la configuration. La figure ci-dessous montre l'écart-type des différentes combinaisons possibles avec la configuration A.
 
 \begin{center}
 \includegraphics[scale=0.75]{graphique_ecart_type_configurationA.PNG}
 \captionof{figure}{Courbes de l'écart-type des différentes combinaisons possibles avec la configuration A}
 \end{center}
 
-Après avoir testé les différents combinaisons, nous avons retenu les configurations suivantes : G1/D1/P4/P5 et G1/D1/P5/P4.
+De cette étude, nous avons retenu les configurations suivantes : G1/D1/P4/P5 et G1/D1/P5/P4.
 
+\newpage
 \begin{center}
-\includegraphics[scale=0.75]{conf_retenu.png}
+\includegraphics[width=\textwidth]{conf_retenu.png}
 \captionof{figure}{Les configurations retenues par notre équipe}
 \end{center}
 
-Le choix entre ces deux configurations va être fait en fonction de l'encombrement provoqué par le jeu d'engrenage pour chacune des configurations. Il est important de préciser que nos calculs ont été effectués lors du régime nominal du système
+Le choix entre ces deux configurations sera fait en fonction de l'espace disponible.
+
+Notons que dans cette étude le \textbf{démarreur} est supposé tourner à \textbf{11000 tr/min}.
 
 \newpage
 \section{Étude dans le cas d'un fonctionnement nominal}
