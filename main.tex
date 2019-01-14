@@ -75,7 +75,7 @@
 %\end{center}
 
 \newpage
-\section{Introduction}
+\section{Introduction} 
 
 Dans notre phase d'apprentissage des différentes notions en mécanique, nous avons comme objectif de concevoir un relais d'accessoires pour un réacteur d'avion.
 Ce relais est un élément clef pour le réacteur. En effet, il permet notamment de démarrer le réacteur d'un avion.
@@ -369,7 +369,7 @@ Une deuxième transmission de puissance consiste à utiliser des cannelures.
 Il existe deux types de cannelures : les cannelures à flancs parallèles et les cannelures à flancs en développante.
 Dans la suite, nous avons présenter nos calculs pour les deux types de cannelures.
 
-\paragraph{Étude des cannelures à flancs parallèles}
+\paragraph{Étude des cannelures à flancs parallèles\\}
 
 Lorsqu'il n'est pas possible d'utiliser des clavettes pour des raisons de longueur trop importante, il est recommandé d'utiliser les cannelures à flancs parallèles.
 
@@ -430,35 +430,36 @@ Arbre Pompe 5 & 6 & 1,5 & 16 & 13 & 14,5 & 5,00E+01 & 6,22 \\ \hline
 }
 \end{table}
 
-Les résultats sont plutôt concluants pour les cannelures à flancs parallèles. Cependant, Les cannelures à flancs parallèles ne sont pas parfaitement adaptées pour des vitesses de rotation très élevées du fait que l'alignement n'est pas parfaite. 
+Les résultats sont plutôt concluants pour les cannelures à flancs parallèles. Cependant, Les cannelures à flancs parallèles ne sont pas parfaitement adaptées pour des vitesses de rotation très élevées du fait que l'alignement ne soit pas parfait. 
 
-Du fait que nous avons pas connaissance de la vitesse de rotation maximale pour les cannelures à flancs parallèles, nous avons décidé de changer par précaution pour l'autre type de cannelures : les cannelures à flancs en développante.
+Du fait que nous n'ayons pas connaissance de la vitesse de rotation maximale pour les cannelures à flancs parallèles, nous avons décidé de changer par précaution pour l'autre type de cannelures : les cannelures à flancs en développante.
+\newpage
 
 \paragraph{Étude des cannelures à flancs en développante \\}
 
-Après étudié les cannelures à flancs parallèles, nous avons décidé d'étudier les cannelures à flancs en développante. Ces dernières ont l'avantage d'être adapté pour les vitesses de rotations importantes.
+Les cannelures à flancs en développante ont l'avantage d'être adaptées pour les vitesses de rotations importantes.
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{cannelure_developpante.jpg}
 \captionof{figure}{Représentation d'une cannelure à flancs en développante}
 \end{center}
 
-Pour dimensionner ces cannelures, nous avons utilisé les formules suivantes ;
+Pour les dimensionner, nous avons utilisé les formules suivantes ;
 \begin{itemize}
     \item A : surface portante équivalente par unité de longueur : $A = (\frac{d2-d1}{2}.Ndents$ où d1 est le diamètre intérieur et d2 est le diamètre extérieur de la cannelure.
     \item Couple transmissible : $C = p A L \frac{d1+d2}{4} = \frac{p Ndents L}{8} (d2^2 - d1^2)$.
 \end{itemize}
-Nous retrouvons rapidement que la longueur minimale de la cannelure à flancs en développante est égal à 
+Nous retrouvons rapidement que la longueur minimale de la cannelure à flancs en développante est égale à 
 \[ L >= \frac{8 C}{Ndents.(d2^2 - d1^2). Padm}\]
 
-Afin de choisir au mieux les dimensions des différentes cannelures, nous nous sommes appuyés sur le tableau de calcul du livre mécanique "Guide du dessinateur industriel" de M.Chevalier publié en 1969.
+Afin d'ajuster au mieux les dimensions des différentes cannelures, nous nous sommes appuyés sur le tableau de calcul du livre mécanique "Guide du dessinateur industriel" de M. Chevalier publié en 1969.
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{guide_dessin_indus_cannelure_dev.jpg}
-\captionof{figure}{Tableau de dimensionnement des cannelures à flancs en développante du "Guide du dessinateur industriel" de M.Chevalier publié en 1969}
+\captionof{figure}{Tableau de dimensionnement des cannelures à flancs en développante - "Guide du dessinateur industriel", M.Chevalier, 1969}
 \end{center}
 
-Vous trouverez ci-dessous le tableau récapitulatif des différentes cannelures à flancs en développante pour chacun de nos arbres.
+Le tableau ci-dessous résulte de notre étude des cannelures à flancs en développante pour chaque arbre :
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -478,7 +479,7 @@ Arbre Pompe 5 & 20 & 1,25 & 17 & 18 & 18 & 19,75 & 1,34 \\ \hline
 }
 \end{table}
 
-Au vu du tableau récapitulatif, nous avons pu obtenir des longueurs minimales inférieures à 10 mm. Cela nous permet nous permet d'ajuster la longueur des cannelures en fonction de la largeur des différents engrenages. 
+Ainsi, les longueurs minimales des cannelures sont inférieures à 10 mm. Cela nous permet d'ajuster au mieux leur longueur par rapport à la longueur des dents d'engrenage de l'étude ci-après. 
 
 \newpage
 \subsection{Dimensionnement des engrenages}
@@ -493,13 +494,15 @@ Nous prenons un modèle simple de poutre rectangulaire afin de calculer la haute
 \end{center}
 
 Nous devons avoir $\sigma_{x} = \frac{- M_f}{Ig_x} y_{max} \leq \frac{Re}{s}$
-Or $M_f = -2,25 mF $,  $ Ig_x =\frac{L (\frac{\pi m}{2})^3}{12}$ et $L = k m$
+Or $M_f = -2,25 mF $,  $ Ig_x =\frac{L (\frac{\pi m}{2})^3}{12}$ et $L = k \times m$
 
 Donc $\sigma_{x} = \frac{24}{k m (\pi m)^2} 2,25m \leq \frac{Re}{s} $
 
 Ainsi, \[ m \geq \sqrt{\frac{24 s}{ k \pi^2}\frac{2,25F}{Re}}\]
 
-En connaissant cette formule, nous avons pu calculer le module de chaque engrenage. De même, nous avons pu dimensionné les différents engrenages. Lors du dimensionnement de nos engrenages, nous avons vérifié qu'il n'y a pas de collisions entre nos différents composants. Vous trouverez ci-dessous le tableau récapitulatif.
+En connaissant cette formule, nous avons pu calculer le module de chaque engrenage. 
+
+Lors du dimensionnement, nous avons vérifié qu'il n'y ait pas de collision entre nos différents composants. \\Vous trouverez ci-dessous le tableau récapitulatif.
 
 
 \begin{table}[h]
@@ -524,8 +527,7 @@ Pompe 5 & 2 & 10 & 20 & 63 & 63 & 2 785,71 & 0,51 \\ \hline
 
 \newpage
 \subsection{Dimensionnement des roulements et des entretoises}
-
-Après avoir étudié les arbres, les cannelures et les engrenages, nous avons finalisé notre dimensionnement de notre relais d'accessoires par le dimensionnement des roulements et des entretoises.
+Le dimensionnement des arbres, des cannelures et des engrenages ayant été réalisé, notre étude du relais d'accessoire se conclut par le dimensionnement des roulements et des entretoises.
 
 \subsubsection{Dimensionnement des roulements}
 
@@ -540,17 +542,17 @@ La force radiale exercée par l'arbre sur les roulements est déterminée par la
 L'expression de la charge statique s'exprime avec la formule suivante :
 \[\ P = | \vec{F_R} \| = \| \vec{T} \| tan(20^\circ{})\]
 
-Afin de déterminer la durée de nos roulements, nous avons utilisé la formule permettant de calculé $L_{10h}$
+Afin de déterminer la durée de vie de nos roulements en heures, nous avons utilisé la formule suivante :
 
 \[L_{10h} = (\frac{C}{P})^3 \frac{10^6}{60N}  \]
 En isolant C, nous trouvons :
 \[C = P^3\sqrt{L_{10h} \frac{60N}{10^6}}  \]
 
-En prenant en compte l'ensemble des données que nous avons sur les différents composants de notre relais d'accessoires, nous pouvons calculer la charge dynamique de chaque arbre. Vous pourrez trouver ci-dessous, la charge dynamique des différents arbres.
+En prenant en compte l'ensemble des données que nous avons sur les différents composants de notre relais d'accessoires, nous pouvons calculer la charge dynamique de chaque arbre. Vous pourrez trouver ci-dessous, la charge dynamique des différents arbres :
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[h]
+\begin{table}[h!]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|l|l|l|l|}
@@ -565,13 +567,18 @@ Arbre Pompe 5 & 2 785,71 & 15,21 & 0,0085 & 651,32 & 4 520,31 & 17 \\ \hline
 \end{tabular}%
 }
 \end{table}
+\newpage
 
-Le diamètre des arbres et des roulements ont été adaptés à ce qui existent auprès des fournisseurs. Le choix des roulements a été fait en supposant que malgré la présence de deux roulements pour chaque arbre, la charge dynamique sur chaque arbre n'est pas répartie uniformément sur les roulements. De même, nous avons décidé de minimiser le nombre de roulements différents. Cela permet d'avoir un effet d'échelle lors de l'achat et aussi de pouvoir faciliter la maintenance des relais d'accessoires.
-Après avoir recherché dans le livret de commandes de l'entreprise SKF, nous avons décidé de nous fournir en roulements à roulements. Vous trouverez ci-dessous, un tableau récapitulant la référence du roulement pour chaque arbre.
+Le diamètre des arbres et des roulements a été adapté à ce qui existe auprès des fournisseurs. 
+
+Le choix des roulements a été fait en supposant que malgré la présence de deux roulements pour chaque arbre, la charge dynamique sur chaque arbre n'est pas répartie uniformément sur les roulements. 
+
+Nous avons aussi décidé de minimiser le nombre de roulements différents utilisés dans le relais complet. Cela permet d'avoir un effet d'échelle lors de l'achat et aussi de pouvoir faciliter la maintenance du relais d'accessoires.
+Après avoir recherché dans le livret de commande de l'entreprise SKF, vous trouverez ci-dessous, un tableau récapitulant la référence du roulement retenue pour chaque arbre :
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h!]
 \centering
 {%
 \begin{tabular}{|l|l|l|}
@@ -590,14 +597,17 @@ Arbre Pompe 5 & 17 & NU 2203 ECP \\ \hline
 
 
 \newpage
-\subsection{Dimensionnement des entretoises}
+\subsection{Étude des entretoises}
 
-Pour finir le dimensionnement de notre relais d'accessoires, nous avons étudié les entretoises nécessaires à placer pour limiter le jeu des engrenages sur leur arbres. Du fait que la hauteur nécessaire pour bloquer en translation nos engrenages est différente de la hauteur maximale pour nos roulements, nous avons décidé d'utiliser des entretoises coudées.
+Pour finir le dimensionnement de notre relais d'accessoires, nous avons étudié les entretoises nécessaires à limiter le jeu des engrenages sur leurs arbres. Du fait que la hauteur nécessaire pour bloquer en translation nos engrenages soit différente de la hauteur maximale pour nos roulements, nous pourrons utiliser des entretoises coudées.
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{Solution_cannelures.png}
 \captionof{figure}{Schéma d'un arbre avec des entretoises}
 \end{center}
+
+
+
 
 \newpage
 \subsection{Modélisation sur CATIA}
@@ -613,19 +623,25 @@ Pour finir le dimensionnement de notre relais d'accessoires, nous avons étudié
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{BE_3D_complet_ARO_coupe.PNG}
+\includegraphics[width=0.6\textwidth, trim={7cm 5cm 2cm 3cm}, clip]{BE_3D_complet_ARO_coupe.PNG}
 \captionof{figure}{Vue en coupe au niveau du démarreur D1}
 \end{center}
 
+L'étude qui a été exposée jusqu'ici est valide pour un démarreur qui aurait une vitesse de rotation de 11000 tr/min quand la turbine est à vitesse de rotation nominale.
+
+En effet nous n'avions pas remarqué que l'énoncé de l'exercice précisait que le démarreur devait entraîner la turbine jusqu'à puissance nominale démarreur (5500 tr/min) puis être débrayé. Au moment du débrayage, l'arbre d'entrée E doit avoir une vitesse de rotation au quart de sa vitesse nominale.
+
+La correction de cette erreur d'interprétation d'énoncé est l'objet de l'étude exposée ci-après.
+
 
 \newpage
-\section{Étude dans le cas du démarrage de notre relais d'accessoires}
+\section{Cas du démarrage du relais d'accessoires}
+Nous reconcevrons dans cette étude la transmission de puissance qui a lieu entre l'arbre du démarreur et l'arbre d'entrée du relais d'accessoires.
 
-Lors de notre étude de notre relais d'accessoires, nous avons son fonctionnement en régime nominal. Cependant, afin de réaliser une étude complète de notre relais d'accessoires, il est nécessaire d'étudier son fonctionnement au démarrage.
+Le point de dimensionnement le plus contraignant en puissance se situe lorsque le démarreur tourne à 5500 tr/min et que l'arbre d'entrée tourne à 2250 tr/min. 
+\\Un tel écart de vitesse de rotation rend obligatoire de rajouter un arbre intermédiaire afin de respecter le critère de dimensionnement en rapport de réduction (compris entre 0,5 et 2).
 
-Lors du démarrage de notre relais d'accessoires, le démarreur tourne à 50\% de sa vitesse de rotation nominale (5500 rpm) et l'arbre tourne à 2500 rpm. Un tel écart de vitesse de rotation rend obligatoire de rajouter un arbre intermédiaire pour avoir un rapport de réduction entre chaque arbre compris entre 0,5 et 2.
-
-Du fait que les vitesses de rotation sont différentes lors du démarrage du relais d'accessoires, nous avons refait les calculs des couples pour chaque arbre.
+Les couples dimensionnants sont ainsi calculés à ce point de fonctionnement, sauf pour le couple du démarreur qui est maximal à vitesse de rotation nulle (354,19 Nm) :
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -642,20 +658,19 @@ Arbre Intermédiaire E-D & 4000 & 418,88 & 487,01 \\ \hline
 }
 \end{table}
 
-Du fait qu'il n'y a que la partie dédiée au démarreur et à la génératrice est la seule partie modifiée, nous avons de récupérer l'ancienne conception du relais d'accessoires.
+Les modifications impactant la partie Démarreur/Génératrice de notre conception, le schéma cinématique sera différent :
 
-Vous trouverez ci-dessous la nouvelle structure de notre relais d'accessoires.
 \begin{center}
-\includegraphics[width=0.75\textwidth]{schema_V2.jpg}
-\captionof{figure}{Schéma de la nouvelle configuration}
+\includegraphics[width=0.85\textwidth]{Schema_cinematique_engrenages_V2.png}
+\captionof{figure}{Schéma cinématique de la nouvelle configuration}
 \end{center}
 
 
-
+\newpage
 
 \subsection{Dimensionnement des arbres}
 
-Comme pour notre première étude du relais d'accessoires, nous avons commencé notre montage par le dimensionnement de nos différents arbres. Nous avons repris les équations que nous avons utilisé pour l'ancienne version du relais d'accessoires. Vous trouverez ci-dessous les nouveaux diamètres des arbres. 
+À l'instar de notre première étude, nous avons d'abord dimensionné les arbres. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
