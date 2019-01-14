@@ -186,7 +186,7 @@ Cela aboutira à un deuxième classement, de la configuration la plus optimisée
 
 Après automatisation informatique de cette classification, nous avons pu au total tester 480 combinaisons possibles ((1 (architecture 1) + 3 (architecture 2))$\times$ 4!$\times$ 5 (configurations) = 4$\times$24$\times$5 = 480). L'architecture 2 permet trois dispositions différentes car nous pouvons avoir le cas où les arbres de deux composants peuvent se connecter sur un arbre intermédiaire.
 
-Pour effectuer un classement pertinent, nous avons décidé de classer les configurations en fonction la colonne \textit{écart-type}, du nombre d'engrenages ayant un rapport de réduction à l'extérieur de l'intervalle $[0,5,2]$ et du respect du sens de rotation du démarreur. En effet, en fonction de la configuration, le démarreur tourne dans le sens horaire ou dans le sens trigonométrique. 
+Pour effectuer un classement pertinent, nous avons décidé de classer les configurations en fonction la colonne \textit{écart-type}, du nombre d'engrenages ayant un rapport de réduction à l'extérieur de l'intervalle $[0,5;2]$ et du respect du sens de rotation du démarreur. En effet, en fonction de la configuration, le démarreur tourne dans le sens horaire ou dans le sens trigonométrique. 
 
 La colonne \textit{écart-type} est un indicateur. Plus cet indicateur est important, plus cela signifie que la configuration calculée nécessite des changements de diamètre importants. 
 
@@ -446,10 +446,10 @@ Après étudié les cannelures à flancs parallèles, nous avons décidé d'étu
 Pour dimensionner ces cannelures, nous avons utilisé les formules suivantes ;
 \begin{itemize}
     \item A : surface portante équivalente par unité de longueur : $A = (\frac{d2-d1}{2}.Ndents$ où d1 est le diamètre intérieur et d2 est le diamètre extérieur de la cannelure.
-    \item Couple transmissible : $C = p A L \frac{d1+d2}{4} = \frac{p Ndents L}{8} (d2² - d1²)$.
+    \item Couple transmissible : $C = p A L \frac{d1+d2}{4} = \frac{p Ndents L}{8} (d2^2 - d1^2)$.
 \end{itemize}
 Nous retrouvons rapidement que la longueur minimale de la cannelure à flancs en développante est égal à 
-\[ L >= \frac{8 C}{Ndents.(d2² - d1²). Padm}\]
+\[ L >= \frac{8 C}{Ndents.(d2^2 - d1^2). Padm}\]
 
 Afin de choisir au mieux les dimensions des différentes cannelures, nous nous sommes appuyés sur le tableau de calcul du livre mécanique "Guide du dessinateur industriel" de M.Chevalier publié en 1969.
 
@@ -625,15 +625,7 @@ Lors de notre étude de notre relais d'accessoires, nous avons son fonctionnemen
 
 Lors du démarrage de notre relais d'accessoires, le démarreur tourne à 50\% de sa vitesse de rotation nominale (5500 rpm) et l'arbre tourne à 2500 rpm. Un tel écart de vitesse de rotation rend obligatoire de rajouter un arbre intermédiaire pour avoir un rapport de réduction entre chaque arbre compris entre 0,5 et 2.
 
-Du fait qu'il n'y a que la partie dédiée au démarreur et à la génératrice est la seule partie modifiée
-
-
-Vous trouverez ci-dessous 
-\begin{center}
-\includegraphics[width=0.75\textwidth]{schema_V2.jpg}
-\captionof{figure}{Schéma de la nouvelle configuration}
-\end{center}
-
+Du fait que les vitesses de rotation sont différentes lors du démarrage du relais d'accessoires, nous avons refait les calculs des couples pour chaque arbre.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -649,6 +641,17 @@ Arbre Intermédiaire E-D & 4000 & 418,88 & 487,01 \\ \hline
 \end{tabular}%
 }
 \end{table}
+
+Du fait qu'il n'y a que la partie dédiée au démarreur et à la génératrice est la seule partie modifiée, nous avons de récupérer l'ancienne conception du relais d'accessoires.
+
+Vous trouverez ci-dessous la nouvelle structure de notre relais d'accessoires.
+\begin{center}
+\includegraphics[width=0.75\textwidth]{schema_V2.jpg}
+\captionof{figure}{Schéma de la nouvelle configuration}
+\end{center}
+
+
+
 
 \subsection{Dimensionnement des arbres}
 
