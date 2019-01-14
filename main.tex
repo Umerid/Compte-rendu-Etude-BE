@@ -655,7 +655,7 @@ Vous trouverez ci-dessous la nouvelle structure de notre relais d'accessoires.
 
 \subsection{Dimensionnement des arbres}
 
-Comme pour notre première étude du relais d'accessoires, nous avons commencé notre montage par le dimensionnement de nos différents arbres. Vous 
+Comme pour notre première étude du relais d'accessoires, nous avons commencé notre montage par le dimensionnement de nos différents arbres. Nous avons repris les équations que nous avons utilisé pour l'ancienne version du relais d'accessoires. Vous trouverez ci-dessous les nouveaux diamètres des arbres. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -671,24 +671,35 @@ Arbre Intermédiaire E-D & 35,03 & 35,15 \\ \hline
 \end{tabular}%
 }
 \end{table}
+
+
 \subsection{Dimensionnement des cannelures}
+
+Dans la suite du dimensionnement de notre relais d'accessoires, nous avons étudié les géométries pour les cannelures. Comme nous avons pu voir que les cannelures à flancs en développante sont plus adaptées par rapport aux cannelures à flancs parallèles et aux clavettes, nous avons décidé d'étudier uniquement les cannelures à flancs en développante.
+
+Vous trouverez ci-dessous le tableau récapitulatif contenant les nouveaux calculs pour nos cannelures.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
 \begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-CANNELURES & Diamètre & Couple nécessaire & A (mm) & m (module) & B (diamètre intérieur ) & N (nombre de dents) & D (diamètre primitif) & A’ (Diamètre extérieur ) & L mini (mm) \\ \hline
-Arbre Entrée & 45,00 & 779,22 & 60 & 2,5 & 54 & 22 & 55 & 59,5 & 9,08 \\ \hline
-Arbre Démarreur & 35,00 & 354,19 & 50 & 2,5 & 44 & 18 & 45 & 49,5 & 6,12 \\ \hline
-Arbre Intermédiaire E-D & 40,00 & 487,01 & 55 & 2,5 & 49 & 20 & 50 & 54,5 & 6,84 \\ \hline
+CANNELURES & A (mm) & m (module) & N (nombre de dents) & D (diamètre primitif) & A’ (Diamètre extérieur ) & L mini (mm) \\ \hline
+Arbre Entrée & 60 & 2,5 & 22 & 55 & 59,5 & 9,08 \\ \hline
+Arbre Démarreur & 50 & 2,5 & 18 & 45 & 49,5 & 6,12 \\ \hline
+Arbre Intermédiaire E-D & 55 & 2,5 & 20 & 50 & 54,5 & 6,84 \\ \hline
 \end{tabular}%
 }
 \end{table}
 
+
 \subsection{Dimensionnement des engrenages}
+
+Après avoir étudié les arbres et les cannelures, nous avons continué notre étude de dimensionnement avec les engrenages. Nous avons adapté les rayons de nos engrenages de façon à respecter les vitesses de rotations au démarrage et aussi à respecter les écarts entre les différents composants. Vous trouverez ci-dessous les nouvelles dimensions pour les engrenages.
+
+
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
 \begin{table}[h]
@@ -696,7 +707,7 @@ Arbre Intermédiaire E-D & 40,00 & 487,01 & 55 & 2,5 & 49 & 20 & 50 & 54,5 & 6,8
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-ENGRENAGES & module & Largueur (mm) & Rayon engrenage (mm) & nb dents & Diamètre engrenage & Vitesse de rotation & Erreur (\%) \\ \hline
+ENGRENAGES & module & Largeur (mm) & Rayon engrenage (mm) & nb dents & Diamètre engrenage & Vitesse de rotation & Erreur (\%) \\ \hline
 Arbre Entrée & 3 & 30 & 75 & 50 & 150 & 5 507,66 & 0,139324277255318 \\ \hline
 Arbre Intermédiaire E-D 1 & 3 & 30 & 54 & 36 & 108 & 3 965,52 &  \\ \hline
 Arbre Intermédiaire E-D 2 & 2 & 20 & 46 & 46 & 92 & 3 965,52 & -0,862068965517233 \\ \hline
@@ -704,43 +715,55 @@ Arbre Démarreur & 2 & 20 & 29 & 29 & 58 & 2 500,00 &  \\ \hline
 \end{tabular}%
 }
 \end{table}
+
+\newpage
 \subsection{Dimensionnement des roulements et des entretoises}
+
+Pour finir le dimensionnement de notre relais d'accessoires, nous avons chercher quels sont les roulements adaptés pour chacun de nos arbres. Pour cette nouvelle version de notre relais d'accessoires, nous avons fait l'hypothèse que la charge se répartit uniformément sur les deux roulements pour chacun de nos arbres. Vous pourrez trouver ci-dessous les charges statiques et dynamiques et aussi les roulements choisis pour chaque arbre.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
 \begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
-ROULEMENTS & Vitesse de rotation (RPM) & Couple & Diamètre (mm) & P (N) & C (N) & Roulement à billes & C\_Max\_Indi (kN) & Quantité & C\_Max\_Collectif (kN) \\ \hline
-Arbre Entrée & 2 500,00 & 779,22 & 45 & 12 605,06 & 84 382,42 & 6309 & 55,3 & 2 & 110,6 \\ \hline
-Arbre Démarreur & 5 500,00 & 354,19 & 35 & 7 366,59 & 64 137,89 & 6307 & 35,1 & 2 & 70,2 \\ \hline
-Arbre Intermédiaire E-D & 4 000,00 & 487,01 & 40 & 8 862,93 & 69 394,41 & 6208 ETN9 & 35,8 & 2 & 71,6 \\ \hline
+ROULEMENTS & P (N) & C (N) & Roulement à billes & C\_Max\_Indi (kN) & Quantité & C\_Max\_Collectif (kN) \\ \hline
+Arbre Entrée & 12 605,06 & 84 382,42 & 6309 & 55,3 & 2 & 110,6 \\ \hline
+Arbre Démarreur & 7 366,59 & 64 137,89 & 6307 & 35,1 & 2 & 70,2 \\ \hline
+Arbre Intermédiaire E-D & 8 862,93 & 69 394,41 & 6208 ETN9 & 35,8 & 2 & 71,6 \\ \hline
 \end{tabular}%
 }
 \end{table}
+
+Concernant les entretoise, nous avons décidé de nous inspirer ce que nous avons effectué avec la première version du relais d'accessoires.
+
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{Solution_cannelures.png}
+\captionof{figure}{Vue en côté d'un arbre avec les roulements et les entretoises}
+\end{center}
 \newpage
 \subsection{Modélisation sur CATIA}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{vue3D_BE.png}
-\captionof{figure}{Vue en perspective}
+\includegraphics[width=0.85\textwidth]{vue3D_BE.png}
+\captionof{figure}{Vue en perspective de notre relais d'accessoires}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{vue_3D_BE_Zoom.png}
+\includegraphics[width=0.85\textwidth]{vue_3D_BE_Zoom.png}
 \captionof{figure}{Vue en perspective avec un zoom}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{Vue_3D_sans_carter.PNG}
+\includegraphics[width=0.85\textwidth]{Vue_3D_sans_carter.PNG}
 \captionof{figure}{Vue en perspective avec un zoom et sans carter}
 \end{center}
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{vue_coupe_BE_E_I.PNG}
-\captionof{figure}{Vue en coupe du relai d'accessoires}
+\includegraphics[width=0.85\textwidth]{vue_coupe_BE_E_I.PNG}
+\captionof{figure}{Vue en coupe du relais d'accessoires}
 \end{center}
 \end{spacing}
 \end{document}
