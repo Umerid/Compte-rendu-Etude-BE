@@ -595,8 +595,8 @@ Arbre Pompe 5 & 17 & NU 2203 ECP \\ \hline
 Pour finir le dimensionnement de notre relais d'accessoires, nous avons étudié les entretoises nécessaires à placer pour limiter le jeu des engrenages sur leur arbres. Du fait que la hauteur nécessaire pour bloquer en translation nos engrenages est différente de la hauteur maximale pour nos roulements, nous avons décidé d'utiliser des entretoises coudées.
 
 \begin{center}
-\includegraphics[width=0.6\textwidth]{Droite_de_pression.png}
-\captionof{figure}{Droite de pression et forces transmises}
+\includegraphics[width=0.6\textwidth]{Solution_cannelures.png}
+\captionof{figure}{Schéma d'un arbre avec des entretoises}
 \end{center}
 
 \newpage
@@ -616,19 +616,129 @@ Pour finir le dimensionnement de notre relais d'accessoires, nous avons étudié
 \includegraphics[width=0.75\textwidth]{BE_3D_complet_ARO_coupe.PNG}
 \captionof{figure}{Vue en coupe au niveau du démarreur D1}
 \end{center}
+
+
 \newpage
 \section{Étude dans le cas du démarrage de notre relais d'accessoires}
 
+Lors de notre étude de notre relais d'accessoires, nous avons son fonctionnement en régime nominal. Cependant, afin de réaliser une étude complète de notre relais d'accessoires, il est nécessaire d'étudier son fonctionnement au démarrage.
+
+Lors du démarrage de notre relais d'accessoires, le démarreur tourne à 50\% de sa vitesse de rotation nominale (5500 rpm) et l'arbre tourne à 2500 rpm. Un tel écart de vitesse de rotation rend obligatoire de rajouter un arbre intermédiaire pour avoir un rapport de réduction entre chaque arbre compris entre 0,5 et 2.
+
+Du fait qu'il n'y a que la partie dédiée au démarreur et à la génératrice est la seule partie modifiée
+
+
+Vous trouverez ci-dessous 
+\begin{center}
+\includegraphics[width=0.75\textwidth]{schema_V2.jpg}
+\captionof{figure}{Schéma de la nouvelle configuration}
+\end{center}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\hline
+ARBRE & Vitesse de rotation (rpm) & Vitesse de rotation (rads-1) & Couple (Nm) \\ \hline
+Arbre Entrée & 2500 & 261,80 & 779,22 \\ \hline
+Arbre Démarreur & 5500 & 575,96 & 354,19 \\ \hline
+Arbre Intermédiaire E-D & 4000 & 418,88 & 487,01 \\ \hline
+\end{tabular}%
+}
+\end{table}
+
 \subsection{Dimensionnement des arbres}
 
+Comme pour notre première étude du relais d'accessoires, nous avons commencé notre montage par le dimensionnement de nos différents arbres. Vous 
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|}
+\hline
+DIAMÈTRE & Diamètre mini (mm) & Diamètre min (Pire des cas) \\ \hline
+Arbre Entrée & 40,97 & 41,11 \\ \hline
+Arbre Démarreur & 31,50 & 31,61 \\ \hline
+Arbre Intermédiaire E-D & 35,03 & 35,15 \\ \hline
+\end{tabular}%
+}
+\end{table}
 \subsection{Dimensionnement des cannelures}
 
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+CANNELURES & Diamètre & Couple nécessaire & A (mm) & m (module) & B (diamètre intérieur ) & N (nombre de dents) & D (diamètre primitif) & A’ (Diamètre extérieur ) & L mini (mm) \\ \hline
+Arbre Entrée & 45,00 & 779,22 & 60 & 2,5 & 54 & 22 & 55 & 59,5 & 9,08 \\ \hline
+Arbre Démarreur & 35,00 & 354,19 & 50 & 2,5 & 44 & 18 & 45 & 49,5 & 6,12 \\ \hline
+Arbre Intermédiaire E-D & 40,00 & 487,01 & 55 & 2,5 & 49 & 20 & 50 & 54,5 & 6,84 \\ \hline
+\end{tabular}%
+}
+\end{table}
+
 \subsection{Dimensionnement des engrenages}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+ENGRENAGES & module & Largueur (mm) & Rayon engrenage (mm) & nb dents & Diamètre engrenage & Vitesse de rotation & Erreur (\%) \\ \hline
+Arbre Entrée & 3 & 30 & 75 & 50 & 150 & 5 507,66 & 0,139324277255318 \\ \hline
+Arbre Intermédiaire E-D 1 & 3 & 30 & 54 & 36 & 108 & 3 965,52 &  \\ \hline
+Arbre Intermédiaire E-D 2 & 2 & 20 & 46 & 46 & 92 & 3 965,52 & -0,862068965517233 \\ \hline
+Arbre Démarreur & 2 & 20 & 29 & 29 & 58 & 2 500,00 &  \\ \hline
+\end{tabular}%
+}
+\end{table}
+\subsection{Dimensionnement des roulements et des entretoises}
 
-\subsection{Dimensionnement des roulements et des entroises}
-
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+ROULEMENTS & Vitesse de rotation (RPM) & Couple & Diamètre (mm) & P (N) & C (N) & Roulement à billes & C\_Max\_Indi (kN) & Quantité & C\_Max\_Collectif (kN) \\ \hline
+Arbre Entrée & 2 500,00 & 779,22 & 45 & 12 605,06 & 84 382,42 & 6309 & 55,3 & 2 & 110,6 \\ \hline
+Arbre Démarreur & 5 500,00 & 354,19 & 35 & 7 366,59 & 64 137,89 & 6307 & 35,1 & 2 & 70,2 \\ \hline
+Arbre Intermédiaire E-D & 4 000,00 & 487,01 & 40 & 8 862,93 & 69 394,41 & 6208 ETN9 & 35,8 & 2 & 71,6 \\ \hline
+\end{tabular}%
+}
+\end{table}
+\newpage
 \subsection{Modélisation sur CATIA}
 
+\begin{center}
+\includegraphics[width=0.75\textwidth]{vue3D_BE.png}
+\captionof{figure}{Vue en perspective}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{vue_3D_BE_Zoom.png}
+\captionof{figure}{Vue en perspective avec un zoom}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{Vue_3D_sans_carter.PNG}
+\captionof{figure}{Vue en perspective avec un zoom et sans carter}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.75\textwidth]{vue_coupe_BE_E_I.PNG}
+\captionof{figure}{Vue en coupe du relai d'accessoires}
+\end{center}
 \end{spacing}
 \end{document}
 
